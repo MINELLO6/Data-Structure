@@ -1,0 +1,38 @@
+# 数据结构是计算机存储、组织数据的方式。
+# 算法是一系列规定的计算步骤，为了实现特定的计算目的。
+# 程序 = 数据结构 + 算法
+
+# 数据库用来存储数据的数组就是数据结构，特定的算法需要通过特定的数据结构来实现
+
+# 搜索的两种方式则是特定的两种搜索算法
+# 二分法
+def binary_serach(array,data):
+    if not array:
+        return False
+    array.sort()
+    start,end=0,len(array)-1
+    while start<end:
+        mid_index=(start+end)//2
+        if array[mid_index]==data:
+            return True
+        if array[mid_index]<data:
+            start=mid_index+1
+        else:
+            end=mid_index-1
+    return False
+
+def binary_serach(array,data):
+    if len(array) == 0:
+            return False
+    array.sort()
+    mid_index = len(array) // 2
+    if array[mid_index]==data:
+        return True
+    if array[mid_index]<data:
+        return binary_serach(array[mid_index+1:],data)
+    else:
+        return binary_serach(array[:mid_index+1],data)
+        
+array = [50, 77, 55, 29, 10, 30, 66, 18, 80, 51]
+data=77
+binary_serach(array,data)
